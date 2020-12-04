@@ -6,11 +6,13 @@ from xarray.tutorial import file_md5_checksum
 
 
 def main():
-    files = Path().cwd().rglob('*.nc')
-    for ncf in files:
-        outf = f'{ncf.as_posix()}.md5'
-        with open(outf, 'w') as f:
-            f.write(file_md5_checksum(ncf))
+    files = [f for f in Path().cwd().rglob("*") if f.parent.name != "raven-testdata"]
+    for f in files:
+        outf = f'{f.as_posix()}.md5'
+        if f.is_file() and not Path(outf).exists():
+            with open(outf, 'w') as out:
+                out.write(file_md5_checksum(f))
+
 
 if __name__ == '__main__':
     main()
