@@ -12,8 +12,8 @@ def main():
         if f.parent.name != "raven-testdata" and not str(f).endswith(".md5")
     ]
     for f in files:
-        outf = f"{f.as_posix()}.md5"
-        if f.is_file() and not Path(outf).exists():
+        if f.is_file():
+            outf = f"{f.as_posix()}.md5"
             with open(outf, "w") as out:
                 out.write(file_md5_checksum(f))
 
