@@ -5,14 +5,46 @@ from pathlib import Path
 from xarray.tutorial import file_md5_checksum
 
 
-def main():
-    files = [f for f in Path().cwd().rglob("*") if f.parent.name != "raven-testdata"]
-    for f in files:
-        outf = f'{f.as_posix()}.md5'
-        if f.is_file() and not Path(outf).exists():
-            with open(outf, 'w') as out:
-                out.write(file_md5_checksum(f))
+def valid(path):
+    """Return True if path should be considered for the creation of md5 checksum.
+
+    Parameters
+    ----------
+    path : Path
+      Path object.
+    """
+
+    # Exclude top-level files
+    if len(path.parts) == 1:
+        return False
+
+    # Exclude hidden files
+    if any([p.startswith(".") for p in path.parts]):
+        return False
+
+    # Exclude md5 files
+    if path.suffix == ".md5":
+        return False
+
+    if path.is_file():
+        return True
 
 
-if __name__ == '__main__':
+def main(dry_run=False):
+    """Create checksum files."""
+    cwd = Path(".")
+    files = filter(valid, cwd.rglob("**/*"))
+
+    for file in files:
+        md5 = Path(f"{file}.md5")
+        if not md5.exists():
+            if dry_run:
+                print(f"Create checksum for {file}")
+                continue
+
+            with open(md5, "w") as out:
+                out.write(file_md5_checksum(file))
+
+
+if __name__ == "__main__":
     main()
