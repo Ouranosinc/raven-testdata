@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-from xarray.tutorial import file_md5_checksum
+from ravenpy.utilities.testdata import file_md5_checksum
 
 
 def valid(path):
