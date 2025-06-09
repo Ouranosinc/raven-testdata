@@ -1,15 +1,15 @@
-#########################################################################                                  
-:FileType          rvp ASCII Raven 2.8.2                                                                              
-:WrittenBy         Juliane Mai & James Craig                                                                             
+#########################################################################
+:FileType          rvp ASCII Raven 2.8.2
+:WrittenBy         Juliane Mai & James Craig
 :CreationDate      Nov 2018
 #
-# Emulation of HBV simulation of Salmon River near Prince George                                                             
+# Emulation of HBV simulation of Salmon River near Prince George
 #------------------------------------------------------------------------
 
 # tied parameters:
 # (it is important for OSTRICH to find every parameter place holder somewhere in this file)
 # (without this "para_x05" and "para_x15" wouldn't be detectable)
-#    para_1_+_x15       = 1.0 + par_x15 
+#    para_1_+_x15       = 1.0 + par_x15
 #    para_half_x11      = 0.5 * par_x11
 
 #------------------------------------------------------------------------
@@ -27,11 +27,11 @@
 #---------------------------------------------------------
 # Soil classes
 :SoilClasses
- :Attributes, 
- :Units,      
+ :Attributes,
+ :Units,
    TOPSOIL,      1.0,    0.0,       0
    SLOW_RES,     1.0,    0.0,       0
-   FAST_RES,     1.0,    0.0,       0  
+   FAST_RES,     1.0,    0.0,       0
 :EndSoilClasses
 
 :SoilParameterList
@@ -39,7 +39,7 @@
   :Units     ,                    none,          none,        none,        none,              mm/d,         mm/d,           1/d,                  none
   #                        HBV_PARA_05,   HBV_PARA_06, HBV_PARA_14, HBV_PARA_07,       HBV_PARA_16,     CONSTANT,      CONSTANT,              CONSTANT,
     [DEFAULT],                 par_x05,       par_x06,     par_x14,     par_x07,           par_x16,          0.0,           0.0,                   0.0
-  #                                                       CONSTANT,                                  HBV_PARA_08,   HBV_PARA_09, 1+HBV_PARA_15=1+ALPHA,                 
+  #                                                       CONSTANT,                                  HBV_PARA_08,   HBV_PARA_09, 1+HBV_PARA_15=1+ALPHA,
      FAST_RES,                _DEFAULT,      _DEFAULT,         0.0,    _DEFAULT,          _DEFAULT,      par_x08,       par_x09,           par_1_+_x15
   #                                                       CONSTANT,                                                 HBV_PARA_10,              CONSTANT,
      SLOW_RES,                _DEFAULT,      _DEFAULT,         0.0,    _DEFAULT,          _DEFAULT,     _DEFAULT,       par_x10,                   1.0
@@ -87,7 +87,7 @@
 
 :LandUseParameterList
  :Parameters, HBV_MELT_GLACIER_CORR,   HBV_GLACIER_KMIN, GLAC_STORAGE_COEFF, HBV_GLACIER_AG
- :Units     ,                  none,                1/d,                1/d,           1/mm  
+ :Units     ,                  none,                1/d,                1/d,           1/mm
    #                       CONSTANT,           CONSTANT,        HBV_PARA_19,       CONSTANT,
    [DEFAULT],                  1.64,               0.05,            par_x19,           0.05
 :EndLandUseParameterList

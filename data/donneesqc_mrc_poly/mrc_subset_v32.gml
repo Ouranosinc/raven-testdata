@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xs:schema 
+<xs:schema
     targetNamespace="http://ogr.maptools.org/"
     xmlns:ogr="http://ogr.maptools.org/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -138,7 +138,7 @@
      xmlns:ogr="http://ogr.maptools.org/"
      xmlns:gml="http://www.opengis.net/gml/3.2">
   <gml:boundedBy><gml:Envelope srsName="urn:ogc:def:crs:EPSG::4326"><gml:lowerCorner>46.1928147738976 -72.7782110613148</gml:lowerCorner><gml:upperCorner>48.9633594108087 -70.6915072927268</gml:upperCorner></gml:Envelope></gml:boundedBy>
-                                                                                                                
+
   <ogr:featureMember>
     <ogr:mrc_subset_v32 gml:id="mrc_subset_v32.0">
       <gml:boundedBy><gml:Envelope srsName="urn:ogc:def:crs:EPSG::4326"><gml:lowerCorner>48.8345762131178 -71.9048362699199</gml:lowerCorner><gml:upperCorner>48.9633594108087 -71.7412163656307</gml:upperCorner></gml:Envelope></gml:boundedBy>

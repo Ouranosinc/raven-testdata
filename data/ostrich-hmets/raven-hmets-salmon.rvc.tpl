@@ -1,10 +1,10 @@
-#########################################################################                                  
-:FileType          rvc ASCII Raven 2.8.2                                                                              
-:WrittenBy         Juliane Mai & James Craig                                                                             
+#########################################################################
+:FileType          rvc ASCII Raven 2.8.2
+:WrittenBy         Juliane Mai & James Craig
 :CreationDate      Sep 2018
 #
-# Emulation of HMETS simulation of Salmon River near Prince George                                                             
-#------------------------------------------------------------------------                                 
+# Emulation of HMETS simulation of Salmon River near Prince George
+#------------------------------------------------------------------------
 #
 
 # tied parameters:

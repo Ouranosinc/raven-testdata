@@ -1,10 +1,10 @@
-#########################################################################                                  
-:FileType          rvc ASCII Raven 2.8.2                                                                              
-:WrittenBy         Juliane Mai & James Craig                                                                             
+#########################################################################
+:FileType          rvc ASCII Raven 2.8.2
+:WrittenBy         Juliane Mai & James Craig
 :CreationDate      Sep 2018
 #
-# Emulation of GR4J simulation of Salmon River near Prince George                                                             
-#------------------------------------------------------------------------                                 
+# Emulation of GR4J simulation of Salmon River near Prince George
+#------------------------------------------------------------------------
 #
 # tied parameters:
 # (it is important for OSTRICH to find every parameter place holder somewhere in this file)

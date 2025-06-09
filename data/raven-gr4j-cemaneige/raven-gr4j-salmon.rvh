@@ -1,11 +1,11 @@
-#########################################################################                                  
-:FileType          rvh ASCII Raven 2.8.2                                                                              
-:WrittenBy         Juliane Mai & James Craig                                                                             
+#########################################################################
+:FileType          rvh ASCII Raven 2.8.2
+:WrittenBy         Juliane Mai & James Craig
 :CreationDate      Sep 2018
 #
-# Emulation of GR4J simulation of Salmon River near Prince George                                                             
-#------------------------------------------------------------------------                                 
-#         
+# Emulation of GR4J simulation of Salmon River near Prince George
+#------------------------------------------------------------------------
+#
 :SubBasins
   :Attributes,          NAME, DOWNSTREAM_ID,PROFILE,REACH_LENGTH,GAUGED
   :Units     ,          none,          none,   none,          km,  none

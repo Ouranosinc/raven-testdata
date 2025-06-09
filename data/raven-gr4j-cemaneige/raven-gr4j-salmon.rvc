@@ -1,10 +1,10 @@
-#########################################################################                                  
-:FileType          rvc ASCII Raven 2.8.2                                                                              
-:WrittenBy         Juliane Mai & James Craig                                                                             
+#########################################################################
+:FileType          rvc ASCII Raven 2.8.2
+:WrittenBy         Juliane Mai & James Craig
 :CreationDate      Sep 2018
 #
-# Emulation of GR4J simulation of Salmon River near Prince George                                                             
-#------------------------------------------------------------------------                                 
+# Emulation of GR4J simulation of Salmon River near Prince George
+#------------------------------------------------------------------------
 #
 # initialize to 1/2 full
 # GR4J_X1 * 1000. / 2.0

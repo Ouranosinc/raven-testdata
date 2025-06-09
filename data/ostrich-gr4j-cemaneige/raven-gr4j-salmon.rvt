@@ -1,9 +1,9 @@
-#########################################################################                                  
-:FileType          rvt ASCII Raven 2.8.2                                                                              
-:WrittenBy         Juliane Mai & James Craig                                                                             
+#########################################################################
+:FileType          rvt ASCII Raven 2.8.2
+:WrittenBy         Juliane Mai & James Craig
 :CreationDate      Sep 2018
 #
-# Emulation of GR4J simulation of Salmon River near Prince George                                                             
+# Emulation of GR4J simulation of Salmon River near Prince George
 #------------------------------------------------------------------------
 
 :Gauge meteorological forcings
@@ -50,11 +50,9 @@
 # # observed streamflow
 
 :ObservationData	HYDROGRAPH	1	m3/s
-    :ReadFromNetCDF 
+    :ReadFromNetCDF
          :FileNameNC     Salmon-River-Near-Prince-George_meteo_daily.nc
          :VarNameNC      qobs
          :DimNamesNC     time
     :EndReadFromNetCDF
 :EndObservationData
-
-

@@ -6,7 +6,7 @@
      xmlns:ogr="http://ogr.maptools.org/"
      xmlns:gml="http://www.opengis.net/gml/3.2">
   <gml:boundedBy><gml:Envelope srsName="urn:ogc:def:crs:EPSG::4326"><gml:lowerCorner>46.1928147738976 -72.7782110613148</gml:lowerCorner><gml:upperCorner>48.9633594108087 -70.6915072927268</gml:upperCorner></gml:Envelope></gml:boundedBy>
-                                                                                                                
+
   <ogr:featureMember>
     <ogr:mrc_subset gml:id="mrc_subset.0">
       <gml:boundedBy><gml:Envelope srsName="urn:ogc:def:crs:EPSG::4326"><gml:lowerCorner>48.8345762131178 -71.9048362699199</gml:lowerCorner><gml:upperCorner>48.9633594108087 -71.7412163656307</gml:upperCorner></gml:Envelope></gml:boundedBy>

@@ -1,9 +1,9 @@
-#########################################################################                                  
-:FileType          rvt ASCII Raven 2.8.2                                                                              
-:WrittenBy         Juliane Mai & James Craig                                                                             
+#########################################################################
+:FileType          rvt ASCII Raven 2.8.2
+:WrittenBy         Juliane Mai & James Craig
 :CreationDate      Sep 2018
 #
-# Emulation of MOHYSE simulation of Salmon River near Prince George                                                             
+# Emulation of MOHYSE simulation of Salmon River near Prince George
 #------------------------------------------------------------------------
 
 # meteorological forcings

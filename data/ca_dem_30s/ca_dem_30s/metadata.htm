@@ -2,67 +2,67 @@
 <HEAD>
 <STYLE>
 
-        BODY {background-color:#FBFFFF; margin:0.25in; 
+        BODY {background-color:#FBFFFF; margin:0.25in;
               font-size:10pt; font-family:Arial,sans-serif}
-        
+
         H1   {margin-left:0.05in; position:relative; top:-6; text-align:center;
               font-weight:bold; font-size:18; font-family:Verdana,sans-serif; color:#006400}
-        
+
         H2   {margin-left:0.25in; position:relative; top:-16; text-align:center;
               font-size:13; font-family:Verdana,sans-serif; color:#006400}
 
-        
-        TABLE  {position:relative; top:-10; valign:top; table-layout:fixed; 
+
+        TABLE  {position:relative; top:-10; valign:top; table-layout:fixed;
                 border-collapse:collapse}
-        
+
         TD   {text-align:center}
-        
+
         TD   {font-weight:bold; font-size:11pt; border-color:#6495ED}
-        
+
         .tsel  {color:#FFFFFF; background-color:#6495ED}
-        
+
         .tun   {color:#00008B; background-color:#B8DEFA}
-        
+
         .tover {color:#0000CD; background-color:#B8E6FF; cursor:hand}
-        
-        .f   {background-color:#FFFFFF; border:'1.5pt solid #6495ED'; 
+
+        .f   {background-color:#FFFFFF; border:'1.5pt solid #6495ED';
               position:relative; top:-10}
 
-        
+
         .ph1  {color:#2E8B57; font-weight:bold; cursor:}
-        
+
         .ph2  {margin-left:0.2in; color:#2E8B57; font-weight:bold; cursor:}
-        
+
         .pover1 {color:#006000; font-weight:bold; cursor:hand}
-        
+
         .pover2 {margin-left:0.2in; color:#006000; font-weight:bold; cursor:hand}
 
-        
+
         .pn  {color:#00008B; font-weight:bold}
-        
+
         .pv  {font-family:Verdana,sans-serif; line-height:135%;
               color:#191970; margin:0in 0.15in 0.75in 0.15in}
-        
+
         .pe1  {margin-left:0.2in}
-        
+
         .pe2  {margin-left:0.25in; font-weight:normal; color:#191970;}
-        
+
         .lt  {line-height:115%}
-        
+
         .lt2  {line-height:115%; margin-bottom:1mm}
-        
+
         .sr1  {margin-left:0in}
         .sr2  {margin-left:0.2in}
         .sr3  {margin-left:0.4in}
         .srh1  {color:#00008B; font-weight:bold; margin-left:0in}
         .srh2  {color:#00008B; font-weight:bold; margin-left:0.2in}
 
-        
+
         .name   {margin-left:0.05in; position:relative; top:-6; text-align:center;
                  font-weight:bold; font-size:18; font-family:Verdana,sans-serif; color:#006400}
-        .sub   {margin-left:0.25in; text-align:center; position:relative; top:3; 
+        .sub   {margin-left:0.25in; text-align:center; position:relative; top:3;
                 font-weight:bold; font-size:13; font-family:Verdana,sans-serif; color:#006400}
-        .search   {margin:0in 0.15in 0.75in 0.15in; 
+        .search   {margin:0in 0.15in 0.75in 0.15in;
                    color:#191970; font-family:Verdana,sans-serif; font-size:13}
         .head   {color:#006400}
       </STYLE>
@@ -94,7 +94,7 @@
         window.event.cancelBubble = true;
       }
 
-      //changes the style of the selected tab to unselected and hide its text, then 
+      //changes the style of the selected tab to unselected and hide its text, then
       //set the style of the tab that was clicked on to selected and show its text
       function changeTab(eRow)  {
         var tabs = eRow.cells;
@@ -122,7 +122,7 @@
         if (theGroup.style.display == "none") {
           theGroup.style.display="block";
         }
-        else { 
+        else {
           theGroup.style.display="none";
         }
 
@@ -135,9 +135,9 @@
           switch (e.id) {
             case "DescTab":
               return (Description);
-            case "SpatialTab": 
+            case "SpatialTab":
               return (Spatial);
-            case "AttribTab": 
+            case "AttribTab":
               return (Attributes);
           }
         }
