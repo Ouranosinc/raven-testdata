@@ -1,42 +1,101 @@
 # raven-testdata
-Testing data to support RAVEN WPS services 
+Testing data to support RavenPy and Raven WPS services.
 
 ## Contributing
-
-In order to add a new dataset to the `Raven` testing data, please ensure you perform the following:
+To add a new dataset to the `raven` testing data, please ensure you perform the following:
 
 1. Create a new branch: `git checkout -b my_new_testdata_branch`
-2. Place your dataset within an appropriate subdirectory (or create a new one: `mkdir testdata_contribution`).
-3. Run the md5 checksum generation script: `python make_check_sums.py`
-4. Commit your changes: `git add testdata_contribution && git commit -m "added my_new_testdata"`
+2. Place your dataset within an appropriate subdirectory (or create a new one, e.g. `mkdir data/my_new_data_folder`).
+3. Run the sha256 checksum generation script: `python report_check_sums.py`
+4. Commit your changes: `git add . && git commit -m "added my_new_testdata"`
 5. Open a Pull Request.
 
-To modify an existing dataset, be sure to remove the existing checksum file before running the `make_check_sums.py` script.
+To modify an existing dataset, be sure to remove the existing checksum file before running the `report_check_sums.py` script.
 
-If you wish to perform preliminary tests against the dataset using `RavenWPS` or `RavenPy`, this can be done with the following procedure:
+If you wish to load data from this repository using `pooch`, this can be done with the following procedure:
 
-* If your testing data is `xarray`-readable:
+* To gather a single file:
 ```python
-from ravenpy.utilities.testdata import open_dataset
+import pooch
+import xarray as xr
 
+GITHUB_URL = "https://github.com/Ouranosinc/raven-testdata"
+BRANCH_OR_COMMIT_HASH = "main" # or a specific branch name or commit hash
 
-ds = open_dataset(
-    "testdata_contribution/my_netcdf.nc",
-    github_url="https://github.com/my_username/raven-testdata",
-    branch="my_new_testdata_branch"
+test_data_path = pooch.retrieve(
+    url=f"{GITHUB_URL}/raw/{BRANCH_OR_COMMIT_HASH}/data/my_new_data_folder/my_test_file.nc",
 )
+ds = xr.open_dataset(test_data_path)
 ```
 
-* Otherwise:
-```python
-import os
+> [!NOTE]
+> The following options only work for branches based on `Ouranosinc/raven-testdata`, not forks.
 
-from ravenpy.utilities.testdata import get_file
+If you wish to run the entire `RavenPy/ravenWPS` testing suite locally against your branch, this can be set via an environment variable:
+```shell
+$ export RAVEN_TESTDATA_BRANCH="my_new_testdata_branch"
 
-
-test_data: os.PathLike = get_file(
-    "testdata_contribution/my_shape_definition.geojson",
-    github_url="https://github.com/my_username/raven-testdata",
-    branch="my_new_testdata_branch"
-)
+$ pytest raven
+# or, alternatively:
+$ tox
 ```
+
+If you wish to run the entire `RavenPy/ravenWPS` testing suite on the `CSHS-CWRA/RavenPy` or `Ouranosinc/raven` GitHub Workflows (CI) against your branch, this can be set via an environment variable default in the `.github/workflows/main.yml` workflow configuration:
+```yaml
+env:
+  RAVEN_TESTDATA_BRANCH: my_new_testdata_branch
+```
+
+> [!WARNING]
+> Be aware that modifying this variable to a value other than the latest tagged version of `raven-testdata` will trigger a GitHub Workflow that will block merging of your Pull Request until changes are made.
+
+## Versioning
+When updating a dataset in `raven-testdata` using a development branch and Pull Request,
+once changes have been merged to the `main` branch, you should tag a new version of `raven-testdata`.
+
+The version tag of `raven-testdata` should follow a [calendar versioning](https://calver.org/) scheme
+(i.e. version string follows from `vYYYY.MM.DD-r#`) reflecting the date of the tag creation, with modifiers if required.
+
+## Data Information
+
+### CEC (NALCMS: North American Land Change Monitoring System)
+
+* About the NALCMS project: https://www.cec.org/north-american-land-change-monitoring-system/
+* Data access: https://www.cec.org/north-american-environmental-atlas/?atlas_search=NALCMS
+
+### CMIP5
+
+* About the CMIP5 project: https://wcrp-cmip.org/cmip5/
+* Data access: https://wcrp-cmip.org/cmip-data-access/
+
+### COPERNICUS (ERA5)
+
+* About the ERA5 project: https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=overview
+* About ERA5-Land project: https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land?tab=overview
+* Data license: https://apps.ecmwf.int/datasets/licences/copernicus/
+
+### EarthEnv
+
+* About the EarthEnv project: https://www.earthenv.org/
+* Data access: https://www.earthenv.org/DEM
+* Data license: EarthEnv Digital Elevation Model Version 1 by [Natalie Robinson and the NCEAS Environment and Organisms (ENO) Working Group](https://www.earthenv.org/DEM.html) is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
+
+### ECCC (GEPS: Global Ensemble Prediction System)
+
+* About the GEPS project: https://catalogue.ec.gc.ca/geonetwork/srv/api/records/6d9dd2f8-202e-58cb-a110-e2168832aacb
+* Data license: https://open.canada.ca/en/open-government-licence-canada
+
+### NOAA (GHCND: Global Historical Climatology Network Daily)
+
+* About the GHCND project: https://www.ncei.noaa.gov/products/land-based-station/global-historical-climatology-network-daily
+* About the data:
+  * https://www.ncei.noaa.gov/metadata/geoportal/rest/metadata/item/gov.noaa.ncdc:C00861/html
+  * https://www.ncei.noaa.gov/data/global-historical-climatology-network-daily/doc/GHCND_documentation.pdf
+* Data license: Public Domain
+
+### USGS (HydroBASINS and HydroSHEDS)
+
+* About the HydroSHEDS project: https://www.hydrosheds.org/about
+* Data Access:
+  * HydroBASINS: https://www.hydrosheds.org/products/hydrobasins
+  * HydroSHEDS: https://www.hydrosheds.org/products/hydrosheds
